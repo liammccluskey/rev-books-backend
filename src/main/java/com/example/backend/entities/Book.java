@@ -18,15 +18,18 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String title;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String author;
 
+    @Column(nullable = false)
     private String genre;
 
+    @Column(nullable = false)
     private int pages;
 
+    @Column(name = "published_year", nullable = false)
     private int publishedYear;
 }

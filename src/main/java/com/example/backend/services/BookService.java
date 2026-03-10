@@ -17,7 +17,15 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public List<Book> getBooks(String author, String genre) {
-        return bookRepository.getBooks(author, genre);
+        if (!(author == null) && !(genre == null)) {
+            return bookRepository.getBooksByAuthorAndGenreOrderByIdDesc(author, genre);
+        } else if (!(author == null)) {
+            return bookRepository.getBooksByAuthorOrderByIdDesc(author);
+        } else if (!(genre == null)) {
+            return bookRepository.getBooksByGenreOrderByIdDesc(genre);
+        } else {
+            return bookRepository.findAll();
+        }
     }
 
     public Book getBookById(Long id) {
